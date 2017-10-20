@@ -2,7 +2,8 @@ const movies = [
     {
         name: 'The Lion King',
         releaseDate: 1994,
-        director: ['Roger Allers', 'Rob Minkoff']
+        director: ['Roger Allers', 'Rob Minkoff'],
+        characters: ['Simba']
     },
     {
         name: 'Pinocchio',
@@ -10,22 +11,26 @@ const movies = [
         director: ['Norman Ferguson', 'T. Hee', 
                 'Wilfred Jackson', 'Jack Kinney',
                 'Hamilton Luske', 'Bill Roberts',
-                'Ben Sharpsteen']
+                'Ben Sharpsteen'],
+        characters: ['Pinocchio']
     },
     {
         name: 'Mulan',
         releaseDate: 1998,
-        director: ['Tony Bancroft', 'Barry Cook']
+        director: ['Tony Bancroft', 'Barry Cook'],
+        characters: ['Mushu']
     },
     {
         name: 'Robin Hood',
         releaseDate: 1973,
-        director: ['Wolfgang Reitherman']
+        director: ['Wolfgang Reitherman'],
+        characters: ['Sir Hiss']
     },
     {
         name: 'The Rescuers',
         releaseDate: 1977,
-        director: ['John Lounsbery', 'Wolfgang Reitherman']
+        director: ['John Lounsbery', 'Wolfgang Reitherman'],
+        characters: ['Bernard']
     }
 ];
 
