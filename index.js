@@ -12,6 +12,7 @@ app.use(session({
 	saveUninitialized: false
 }));
 
+const movieController = require('./controllers/movies');
 const homeController = require('./controllers/home');
 
 app.set('view engine', 'ejs');
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static('public'));
 
+app.use('/movies', movieController);
 app.use('/', homeController);
 
 app.listen(3000, () => {
