@@ -1,0 +1,28 @@
+{
+  "name": "mediafranchiseapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomlouismurphy/mediafranchiseapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomlouismurphy/mediafranchiseapp/issues"
+  },
+  "homepage": "https://github.com/tomlouismurphy/mediafranchiseapp#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "gulp-less": "^3.3.2",
+    "method-override": "^2.3.10",
+    "mongoose": "^4.12.3"
+  }
+}
