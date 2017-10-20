@@ -21,6 +21,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "gulp": "^3.9.1",
     "gulp-less": "^3.3.2",
     "method-override": "^2.3.10",
     "mongoose": "^4.12.3"

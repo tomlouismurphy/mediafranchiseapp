@@ -10,7 +10,9 @@ app.use(session({
 	secret:'jiminy930132$##$281834cricket',
 	resave: false,
 	saveUninitialized: false
-}))
+}));
+
+const homeController = require('./controllers/home');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -19,6 +21,8 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static('public'));
+
+app.use('/', homeController);
 
 app.listen(3000, () => {
 	console.log('app is listening on port 3000');
