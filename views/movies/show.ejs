@@ -5,7 +5,15 @@
 	<title></title>
 </head>
 <body>
-<p><%=movie.name%></p>
+<h3><%=movie.name%></h3>
+<br>
+<p>Directed by: <%for (let i = 0; i < movie.director.length - 1; i++){%>
+					<a href="director<%=i%>"><%=movie.director[i]%></a>, 
+				<%}%>
+				<a href="i"><%=movie.director[movie.director.length - 1]%></a>
+</p>
+<br>
+<p>Cast: <a href=""><%=movie.characters[0]%></a></p>
 <a href="/movies">Return to Movie List</a><br>
 <a href="/">Return to Home</a>
 </body>
