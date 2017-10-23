@@ -7,13 +7,11 @@ const actorSchema = new mongoose.Schema({
 	birthday: String, // or null
 	deathday: String, // or null
 	gender: Number, // 0: not set; 1: Female; 2: Male
-	homepage: String, // or null
 	id: Number,
 	imdb_id: String,
 	name: String,
 	place_of_birth: String, // or null
 	popularity: Number,
-	profile_path: String // or null
 })
 
 

@@ -1,3 +1,51 @@
 body {
+  height: 100%;
+  width: 100%;
   background-color: pink;
+  font-family: 'Open Sans', sans-serif;
+}
+.container-fluid {
+  height: 100%;
+  width: 100%;
+}
+.row {
+  height: 12%;
+  padding: 1em 0;
+}
+.col-1 {
+  text-align: center;
+  border: 1px solid black;
+}
+.col-2 {
+  text-align: center;
+  border: 1px solid black;
+}
+.col-4 {
+  text-align: center;
+  border: 1px solid black;
+}
+.col-5 {
+  text-align: center;
+  border: 1px solid black;
+}
+.col-6 {
+  text-align: center;
+  border: 1px solid black;
+}
+.col-10 {
+  text-align: center;
+  border: 1px solid black;
+}
+div.textContainer {
+  padding: 1em 0;
+  height: 100%;
+}
+#main-page-layout {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
+}
+#title-row {
+  height: 20%;
 }

@@ -2,14 +2,12 @@ const mongoose = require('mongoose');
 
 const movieSamSchema = new mongoose.Schema({
 	adult: Boolean,
-	backdrop_path: String, // or null
 	belongs_to_collection: null, // or Object
 	budget: Number,
 	genres: [{
 		id: Number,
 		name: String
 	}],
-	homepage: String, // or null
 	id: Number,
 	imdb_id: String, // or null (minLength: 9; maxLength: 9; pattern: ^tt[0-9]{7})
 	original_language: String,
@@ -35,7 +33,6 @@ const movieSamSchema = new mongoose.Schema({
 	status: String,
 	tagline: String, // or null
 	title: String,
-	video: Boolean,
 	vote_average: Number,
 	vote_count: Number
 })

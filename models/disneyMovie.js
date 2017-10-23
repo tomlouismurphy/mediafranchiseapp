@@ -12,10 +12,8 @@ const disneyMovieSchema = new mongoose.Schema({
 		original_title: String,
 		original_language: String,
 		title: String,
-		backdrop_path: String, // or null
 		popularity: Number,
 		vote_count: Number,
-		video: Boolean,
 		vote_average: Number
 	}],
 	total_results: Number,
