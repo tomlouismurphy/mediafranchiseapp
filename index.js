@@ -14,6 +14,7 @@ app.use(session({
 }));
 
 const movieController = require('./controllers/movies');
+const userController = require('./controllers/users');
 const homeController = require('./controllers/home');
 
 app.set('view engine', 'ejs');
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static('public'));
 
 app.use('/movies', movieController);
+app.use('/users', userController);
 app.use('/', homeController);
 
 app.listen(3000, () => {

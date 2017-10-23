@@ -24,7 +24,11 @@
     "express-session": "^1.15.6",
     "gulp": "^3.9.1",
     "gulp-less": "^3.3.2",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.2.1",
+    "jsdom": "^11.3.0",
     "method-override": "^2.3.10",
-    "mongoose": "^4.12.3"
+    "mongoose": "^4.12.3",
+    "xmlhttprequest": "^1.8.0"
   }
 }

@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const MovieSchema = new mongoose.Schema({
     name: String,
     releaseDate: Number,
+    id: Number,
+    overview: String,
+    poster_path: String,
     director: [String],
     characters: [String]
 })
