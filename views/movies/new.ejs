@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../head %>
+	<title></title>
+</head>
+<body>
+<header>
+	<h1>Create an Movie</h1>
+	<nav>
+		<ul>
+			<li>
+				<a href="/">Home</a>
+			</li>
+			<li>
+				<a href="/articles">Article Index</a>
+			</li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<form action="/articles" method="POST">
+		<select name="authorId">
+			<% authors.forEach((author) => { %>
+				<option value="<%= author._id %>"><%= author.name %></option>
+			<% }) %>
+		</select>
+		<input type="text" name="title"><br>
+		<textarea name="body"></textarea><br>
+		<input type="submit" value="Publish Article">
+	</form>
+<a href="/movies">Return to Movie List</a><br>
+<a href="/">Return to Home</a>
+<script src="javascripts/app.js"></script>
+</body>
+</html>
