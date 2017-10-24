@@ -9,15 +9,16 @@
 <h5>Released in <%=movie.releaseDate%></h5>
 <br>
 	<p>Directed by: <%for (let i = 0; i < movie.director.length - 1; i++){%>
-		<a href="director<%=i%>"><%=movie.director[i]%></a>, 
+		<a href="/<%=movie.id%>/director<%=i%>"><%=movie.director[i]%></a>, 
 	<%}%>
-		<a href="director<%=movie.director.length - 1%>"><%=movie.director[movie.director.length - 1]%></a>
+		<a href="/<%=movie.id%>/director<%=movie.director.length - 1%>"><%=movie.director[movie.director.length - 1]%></a>
 	</p>
 <br>
 	<p>Cast: <%for (let i = 0; i < movie.characters.length - 1; i++){%>
-		<a href="characters<%=i%>"><%=movie.characters[i]%></a>, 
+		<a href="/<%=movie.id%>/characters<%=i%>"><%=movie.characters[i]%></a>, 
 	<%}%>
-		<a href="characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a></p>
+		<a href="/<%=movie.id%>/characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a></p>
+<a href="/movies/<%=movie.id%>/addchar">Add New Character</a><br>
 <a href="/movies">Return to Movie List</a><br>
 <a href="/">Return to Home</a>
 <script src="javascripts/app.js"></script>
