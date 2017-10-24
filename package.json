@@ -29,6 +29,7 @@
     "jsdom": "^11.3.0",
     "method-override": "^2.3.10",
     "mongoose": "^4.12.3",
+    "request": "^2.83.0",
     "xmlhttprequest": "^1.8.0"
   }
 }

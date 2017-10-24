@@ -84,6 +84,3 @@ $.ajax({
 // })s
 
 console.log('public js window is now closing');
-
-const arr = [3, 6]
-module.exports = arr;

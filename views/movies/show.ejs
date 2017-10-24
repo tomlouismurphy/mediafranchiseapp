@@ -6,6 +6,7 @@
 </head>
 <body>
 <h3><%=movie.name%></h3>
+<h5>Released in <%=movie.releaseDate%></h5>
 <br>
 	<p>Directed by: <%for (let i = 0; i < movie.director.length - 1; i++){%>
 		<a href="director<%=i%>"><%=movie.director[i]%></a>, 
