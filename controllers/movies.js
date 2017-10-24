@@ -24,9 +24,35 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:index', (req, res) => {
+	req.params.index = parseInt(req.params.index);
 	Movies.find((err, movies) => {
-		res.render('movies/show', {movie: movies[req.params.index]});
+		let ticker = 0;
+		for (let i = 0; i < movies.length; i++){
+			if (movies[i].id === req.params.index){
+				console.log(movies[i]);
+				res.render('movies/show', {movie: movies[i]});
+			} else {
+				ticker++;
+				if (ticker === movies.length){
+					res.redirect('/movies')
+				}
+			}
+		}
 	})
 });
+
+router.get('/:index/addchar', (req, res) => {
+	Movies.findOne({id: req.params.index}, (err, foundMovie) =>{
+		res.render('movies/addcharacters', {movie: foundMovie});
+	})
+})
+
+router.put('/:index/addchar', (req, res) => {
+	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
+		foundMovie.characters.push(req.body.name);
+		foundMovie.save();
+		res.redirect('/movies/:index');
+	})
+})
 
 module.exports = router;

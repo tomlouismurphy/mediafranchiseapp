@@ -34,7 +34,7 @@ const releaseDateToInt = () => {
     for (let i = 0; i < movieListing.length; i++){
         movieListing[i].release_date = parseInt(movieListing[i].release_date.split(/\s*\-\s*/g)[0]);
     };
-}
+};
 
 const populateAjax = () => {
     request('https://api.themoviedb.org/3/discover/movie?with_companies=2&page=1&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020', (error, response, body) => {
@@ -51,7 +51,11 @@ const populateAjax = () => {
     })
 };
 
-populateAjax();
+console.log(movieListing.length);
+if (movieListing.length === 77){
+    populateAjax();
+    console.log(movieListing.length);
+}
 
 module.exports = mongoose.model('Movie', MovieSchema);
 

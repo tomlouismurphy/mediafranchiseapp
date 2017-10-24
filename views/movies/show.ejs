@@ -14,7 +14,10 @@
 		<a href="director<%=movie.director.length - 1%>"><%=movie.director[movie.director.length - 1]%></a>
 	</p>
 <br>
-	<p>Cast: <a href=""><%=movie.characters[0]%></a></p>
+	<p>Cast: <%for (let i = 0; i < movie.characters.length - 1; i++){%>
+		<a href="characters<%=i%>"><%=movie.characters[i]%></a>, 
+	<%}%>
+		<a href="characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a></p>
 <a href="/movies">Return to Movie List</a><br>
 <a href="/">Return to Home</a>
 <script src="javascripts/app.js"></script>

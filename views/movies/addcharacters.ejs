@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ../head %>
+	<title></title>
+</head>
+<body>
+<header>
+	<h1><%=movie.name%></h1>
+</header>
+<main>
+	<form action="/movies/<%=movie.id%>/addchar?_method=PUT" method="POST">
+		New Character: <input type="text" name="name"><br>
+		<input type="submit" value="Add Character">
+	</form>
+</main>
+<a href="/movies">Return to Movie List</a>
+<script src="javascripts/app.js"></script>
+</body>
+</html>
