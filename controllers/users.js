@@ -3,6 +3,7 @@ const router = express.Router();
 const Users = require('../models/user');
 
 router.get('/', (req, res) => {
+	console.log(req.session);
 	Users.find((err, inp) => {
 		if (err) {
 			res.send('database error');
@@ -29,6 +30,7 @@ router.post('/register', (req, res) => {
 				} else {
 					req.session.logged = true;
 					req.session.username = user.username;
+					req.session.save();
 					res.redirect('/');
 				}
 			})
@@ -51,6 +53,8 @@ router.post('/login', (req, res) => {
 				if (inp[i].password === req.body.password){
 					req.session.logged = true;
 					req.session.username = req.body.username;
+					req.session.save();
+					console.log(req.session);
 					res.redirect('/users');
 				} else {
 					res.send('Sorry, that password was incorrect.');
