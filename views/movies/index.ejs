@@ -116,13 +116,100 @@
 			</div>
 			<div class="col-10" id="title-display">
 				<div class="textContainer">
-					<h1>Movie Listing Page</h1>
+					<h1 class="font-weight-bold">Movie Listing Page</h1>
 				</div>
 			</div>
 			<div class="col-1">
 				
 			</div>
 		</div>
+		<div class="row no-gutters align-items-center" id="main-movie-row">
+			<div class="col-1">
+				
+			</div>
+			<div class="col-7">
+				<div class="textContainer" id="main-movie-info">
+				</div>
+			</div>
+			<div class="col-3 align-self-stretch">
+				<div class="textContainer" id="side-movie-info">
+				</div>
+			</div>
+			<div class="col-1">
+				
+			</div>
+		</div>
+	</div>
+
+	<br>
+
+	<div class="container-fluid" id="user-textarea-layout">
+		<p>
+			<button id="button-one" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#first-textarea-layout" aria-expanded="false" aria-controls="first-textarea-layout">First Section</button>
+			<button id="button-two" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#second-textarea-layout" aria-expanded="false" aria-controls="second-textarea-layout">Second Section</button>
+			<button id="button-three" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#third-textarea-layout" aria-expanded="false" aria-controls="third-textarea-layout">Third Section</button>
+		</p>
+		<div class="row no-gutters justify-content-center collapse" id="first-textarea-layout">
+			<div class="col-12">
+				<div class="textContainer">
+					<h3>User Comments</h3>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Username</th>
+								<th scope="col">Comment</th>
+							</tr>
+						</thead>
+						<tbody id="user-comments-list">
+							<tr>
+								<th scope="row">1</th>
+								<td>Username Here</td>
+								<td>Here is my listed comment that I typed out in the text box below.</td>
+							</tr>
+						</tbody>
+					</table>
+					<br>
+					<br>
+					<form>
+						<textarea id="new-user-comment" rows="7"></textarea>
+						<div>
+							<input id="post-comment-button" class="btn btn-primary" type="button" value="Input" name="usercomment">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters justify-content-center collapse" id="second-textarea-layout">
+			<div class="col-10">
+				<div class="textContainer">
+					<h3>Add Actor/Crew Member</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters justify-content-center collapse" id="third-textarea-layout">
+			<div class="col-1">
+				<div class="textContainer"></div>
+			</div>
+			<div class="col-10">
+				<div class="textContainer">
+					<h3>Update Movie Info</h3>
+				</div>
+			</div>
+			<div class="col-1">
+				<div class="textContainer"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+	<div class="container-fluid" id="text-boxes-layout" style="display: none">
 		<div class="row no-gutters align-items-center" id="first-row">
 			<div class="col-1">
 				
@@ -267,12 +354,12 @@
 			</div>
 			<div class="col-5">
 				<div class="textContainer">
-					<a href="/">Return to Home</a>
+					<a href="/"><span class="font-weight-normal">Return to Home</span></a>
 				</div>
 			</div>
 			<div class="col-5">
 				<div class="textContainer">
-					<a href="">Profile</a>
+					<a href="#"><span class="font-weight-normal">Profile</span></a>
 				</div>
 			</div>
 			<div class="col-1">
@@ -280,6 +367,28 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="container-fluid" id="navbar-space">
+		<div class="row no-gutters align-items-center" id="empty-navbar-row">
+			<div class="col-12" id="empty-navbar-div">
+				
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/">Home</a>
+				<a class="nav-item nav-link active" href="/movies">Movies <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link disabled" href="#">Television</a>
+			</div>
+		</div>
+	</nav>
 
 	<script src="javascripts/app.js"></script>
 </body>
