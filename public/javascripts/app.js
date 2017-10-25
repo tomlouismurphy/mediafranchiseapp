@@ -52,20 +52,20 @@ $.ajax({
 		const $movieLang = res.results[0].original_language;
 		const $movieImg = $('<img>');
 
-
+		//in
 		$movieImg.attr('src', 'https://image.tmdb.org/t/p/w500' + $moviePoster);
 		$movieImg.attr('class', 'img-fluid');
 		$movieImg.attr('alt', 'Responsive image');
 		$mainMovieInfo.append($movieImg);
 
-
+		//in
 		const $movieTitleH3 = $('<h3>');
 		$movieTitleH3.attr('class', 'font-weight-bold');
 		$movieTitleH3.attr('id', 'main-movie-title');
 		$mainMovieInfo.append($movieTitleH3);
 		$movieTitleH3.text($movieTitle);
 
-
+		//in
 		const $originalReleaseP = $('<p>');
 		$originalReleaseP.attr('class', 'font-weight-bold');
 		$originalReleaseP.css('margin', '0 0 7px 0');
@@ -73,7 +73,7 @@ $.ajax({
 		$sideMovieInfo.append($originalReleaseP);
 		$originalReleaseP.text('Original Release Date:');
 
-
+		//in
 		const $movieReleaseP = $('<p>');
 		$sideMovieInfo.append($movieReleaseP);
 		const $releaseArray = $movieRelease.split('-');
@@ -108,12 +108,12 @@ $.ajax({
 		$movieReleaseP.text($releaseMonth + ' ' + $releaseDay + ', ' + $releaseYear);
 		$sideMovieInfo.append($('<br>'));
 
-
+		//in
 		const $movieOverviewP = $('<p>');
 		$mainMovieInfo.append($movieOverviewP);
 		$movieOverviewP.text($movieOverview);
 
-
+		//in
 		const $movieGenresP = $('<p>');
 		$movieGenresP.attr('class', 'font-weight-bold');
 		$movieGenresP.css('margin', '0 0 7px 0');
@@ -121,7 +121,7 @@ $.ajax({
 		$sideMovieInfo.append($movieGenresP);
 		$movieGenresP.text('Genres:');
 
-
+		//not added
 		const $movieGenresUl = $('<ul>');
 		for (a = 0; a < $movieGenres.length; a++) {
 			let $movieGenresLi = $('<li>');
@@ -188,7 +188,7 @@ $.ajax({
 		$sideMovieInfo.append($movieGenresUl);
 		$sideMovieInfo.append($('<br>'));
 
-
+		//in
 		const $originalLang = $('<p>');
 		$originalLang.attr('class', 'font-weight-bold');
 		$originalLang.css('margin', '0 0 7px 0');
@@ -196,14 +196,14 @@ $.ajax({
 		$sideMovieInfo.append($originalLang);
 		$originalLang.text('Original Language:');
 
-
+		//in
 		const $movieLangP = $('<p>');
 		$movieLangP.attr('class', 'text-uppercase');
 		$sideMovieInfo.append($movieLangP);
 		$movieLangP.text($movieLang);
 		$sideMovieInfo.append($('<br>'));
 
-
+		//in
 		const $actorsCate = $('<p>');
 		$actorsCate.attr('class', 'font-weight-bold')
 		$actorsCate.css('margin', '0 0 7px 0');
@@ -211,7 +211,7 @@ $.ajax({
 		$sideMovieInfo.append($actorsCate);
 		$actorsCate.text('Actors & Actresses:');
 
-
+		//in
 		const $actorsEntries = $('<div>');
 		$sideMovieInfo.append($actorsEntries);
 		const $actorsText = $('<p>');
