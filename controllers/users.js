@@ -3,7 +3,13 @@ const router = express.Router();
 const Users = require('../models/user');
 
 router.get('/', (req, res) => {
-	res.render('users/index', {});
+	Users.find((err, inp) => {
+		if (err) {
+			res.send('database error');
+		} else {
+			res.render('users/index', {users: inp});
+		}
+	})
 });
 
 router.get('/register', (req, res) => {
@@ -28,6 +34,33 @@ router.post('/register', (req, res) => {
 			})
 		} else {
 			res.send('Username already in use');
+		}
+	})
+})
+
+router.get('/login', (req, res) => {
+	res.render('users/login', {});
+})
+
+router.post('/login', (req, res) => {
+	console.log(req.body);
+	Users.find((err, inp) => {
+		let ticker = 0;
+		for (let i = 0; i < inp.length; i++){
+			if (inp[i].username === req.body.username){
+				if (inp[i].password === req.body.password){
+					req.session.logged = true;
+					req.session.username = req.body.username;
+					res.redirect('/users');
+				} else {
+					res.send('Sorry, that password was incorrect.');
+				}
+			} else {
+				ticker++;
+				if (ticker === inp.length){
+					res.send('That user does not appear in our database.');
+				}
+			}
 		}
 	})
 })

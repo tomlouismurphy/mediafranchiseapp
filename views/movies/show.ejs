@@ -8,13 +8,7 @@
 <h3><%=movie.name%></h3>
 <h5>Released in <%=movie.releaseDate%></h5>
 <br>
-	<p>Directed by: <%for (let i = 0; i < movie.director.length - 1; i++){%>
-		<a href="/<%=movie.id%>/director<%=i%>"><%=movie.director[i]%></a>, 
-	<%}%>
-		<a href="/<%=movie.id%>/director<%=movie.director.length - 1%>"><%=movie.director[movie.director.length - 1]%></a>
-	</p>
-<br>
-	<p>Cast: <%for (let i = 0; i < movie.characters.length - 1; i++){%>
+	<p>Characters: <%for (let i = 0; i < movie.characters.length - 1; i++){%>
 		<a href="/<%=movie.id%>/characters<%=i%>"><%=movie.characters[i]%></a>, 
 	<%}%>
 		<a href="/<%=movie.id%>/characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a></p>

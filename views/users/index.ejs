@@ -5,11 +5,16 @@
 	<title></title>
 </head>
 <body>
-	<h3>Profile Page</h3>
-		<p><a href="users/register">Register for a new account!</a></p>
+	<h3>List of Users</h3>
+	<% for (let i = 0; i < users.length; i++) { %>
+		<%= users[i].username %>
+		<br>
+	<% } %>
+		<br>
+		<p><a href="users/register">Register for a new account!</a><br>
+		<a href="users/login">Login</p>
 	<a href="/movies">List of Movies</a><br>
 	<a href="/">Home</a>
-
 	<script src="javascripts/app.js"></script>
 </body>
 </html>
