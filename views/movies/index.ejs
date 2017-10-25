@@ -5,7 +5,9 @@
 	<title></title>
 </head>
 <body>
-<p>This is the movie listing page.</p>
+	
+	<p>This is the movie listing page.</p>
+	
 	<ul>
 
 	<% for (let i = 0; i < movies.length; i++){%>
@@ -13,8 +15,10 @@
 	<%}%>
 
 	</ul>
-<a href="/">Return to Home</a><br>
-<a href="/users">My Profile</a>
+
+	<a href="/movies/new">Add New Movie</a><br>
+	<a href="/">Return to Home</a><br>
+	<a href="/users">My Profile</a>
 
 
 <!-- Example of a full-screen modal in Bootstrap -->
@@ -97,6 +101,6 @@
 		</div>
 	</div> -->
 
-	<script src="javascripts/app.js"></script>
+	<script src="../javascripts/app.js"></script>
 </body>
 </html>

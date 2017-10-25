@@ -16,7 +16,8 @@ const MovieSchema = new mongoose.Schema({
     overview: String,
     poster_path: String,
     popularity: Number,
-    director: [String],
+    crew: [String],
+    cast: [String],
     characters: [String]
 });
 
@@ -31,7 +32,8 @@ const populateDatabase = () => {
                                 poster_path: movieListing[i].poster_path,
                                 popularity: movieListing[i].popularity,
                                 original_language: movieListing[i].original_language,
-                                director: [],
+                                crew: [],
+                                cast: [],
                                 characters: []
                             })
         movie.save();
@@ -40,12 +42,13 @@ const populateDatabase = () => {
 
 const releaseDateToInt = () => {
     for (let i = 0; i < movieListing.length; i++){
+        console.log(movieListing[i].release_date);
         movieListing[i].release_date = parseInt(movieListing[i].release_date.split(/\s*\-\s*/g)[0]);
     };
 };
 
-const populateAjax = () => {
-    request('https://api.themoviedb.org/3/discover/movie?with_companies=2&page=1&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020', (error, response, body) => {
+const populateAjax = (url) => {
+    request(url, (error, response, body) => {
         if (error){
             console.log('error');
         } else {
@@ -59,9 +62,9 @@ const populateAjax = () => {
     })
 };
 
-console.log(movieListing.length);
 if (movieListing.length === 77){
-    populateAjax();
+    const url = 'https://api.themoviedb.org/3/discover/movie?with_companies=2&page=6&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020';
+    populateAjax(url);
     console.log(movieListing.length);
 }
 
