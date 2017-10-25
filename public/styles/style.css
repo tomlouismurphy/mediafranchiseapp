@@ -14,7 +14,6 @@ body {
 }
 .col-1 {
   text-align: center;
-  border: 1px solid black;
 }
 .col-2 {
   text-align: center;
@@ -76,6 +75,9 @@ td {
   margin: 0;
   padding: 0;
   text-align: center;
+}
+#third-textarea-layout div.col-1 div.textContainer {
+  background: unset;
 }
 #text-boxes-layout {
   margin: 0;
