@@ -7,9 +7,15 @@ const movieListing = [];
 const MovieSchema = new mongoose.Schema({
     name: String,
     releaseDate: Number,
+    genres: [{
+        id: Number,
+        name: String
+    }],
     id: Number,
+    original_language: String,
     overview: String,
     poster_path: String,
+    popularity: Number,
     director: [String],
     characters: [String]
 });
@@ -23,6 +29,8 @@ const populateDatabase = () => {
                                 id: movieListing[i].id,
                                 overview: movieListing[i].overview,
                                 poster_path: movieListing[i].poster_path,
+                                popularity: movieListing[i].popularity,
+                                original_language: movieListing[i].original_language,
                                 director: [],
                                 characters: []
                             })

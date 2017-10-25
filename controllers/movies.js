@@ -29,7 +29,6 @@ router.get('/:index', (req, res) => {
 		let ticker = 0;
 		for (let i = 0; i < movies.length; i++){
 			if (movies[i].id === req.params.index){
-				console.log(movies[i]);
 				res.render('movies/show', {movie: movies[i]});
 			} else {
 				ticker++;
