@@ -271,6 +271,11 @@ $.ajax({
 
 
 
+$('#first-textarea-layout').on('show.bs.collapse', () => {
+	$('#second-textarea-layout').collapse('hide');
+	$('#third-textarea-layout').collapse('hide');
+})
+
 $('#first-textarea-layout').on('shown.bs.collapse', () => {
 	$('#first-textarea-layout').css('display', 'flex');
 })
@@ -279,12 +284,22 @@ $('#first-textarea-layout').on('hide.bs.collapse', () => {
 	$('#first-textarea-layout').css('display', 'none');
 })
 
+$('#second-textarea-layout').on('show.bs.collapse', () => {
+	$('#first-textarea-layout').collapse('hide');
+	$('#third-textarea-layout').collapse('hide');
+})
+
 $('#second-textarea-layout').on('shown.bs.collapse', () => {
 	$('#second-textarea-layout').css('display', 'flex');
 })
 
 $('#second-textarea-layout').on('hide.bs.collapse', () => {
 	$('#second-textarea-layout').css('display', 'none');
+})
+
+$('#third-textarea-layout').on('show.bs.collapse', () => {
+	$('#first-textarea-layout').collapse('hide');
+	$('#second-textarea-layout').collapse('hide');
 })
 
 $('#third-textarea-layout').on('shown.bs.collapse', () => {
