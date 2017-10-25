@@ -44,6 +44,10 @@ body {
   text-align: center;
   border: 1px solid black;
 }
+.col-12 {
+  text-align: center;
+  border: 1px solid black;
+}
 div.textContainer {
   padding: 1em 0;
   height: 100%;
@@ -64,6 +68,17 @@ div.textContainer {
 #main-movie-title {
   padding: 1em 0;
   text-decoration: underline;
+}
+#user-textarea-layout {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+#text-boxes-layout {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  text-align: center;
 }
 #empty-navbar-div {
   height: 40px;

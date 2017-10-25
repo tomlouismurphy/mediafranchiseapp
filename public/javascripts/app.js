@@ -269,4 +269,30 @@ $.ajax({
 	}
 })
 
+
+
+$('#first-textarea-layout').on('shown.bs.collapse', () => {
+	$('#first-textarea-layout').css('display', 'flex');
+})
+
+$('#first-textarea-layout').on('hide.bs.collapse', () => {
+	$('#first-textarea-layout').css('display', 'none');
+})
+
+$('#second-textarea-layout').on('shown.bs.collapse', () => {
+	$('#second-textarea-layout').css('display', 'flex');
+})
+
+$('#second-textarea-layout').on('hide.bs.collapse', () => {
+	$('#second-textarea-layout').css('display', 'none');
+})
+
+$('#third-textarea-layout').on('shown.bs.collapse', () => {
+	$('#third-textarea-layout').css('display', 'flex');
+})
+
+$('#third-textarea-layout').on('hide.bs.collapse', () => {
+	$('#third-textarea-layout').css('display', 'none');
+})
+
 console.log('public js window is now closing');
