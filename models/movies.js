@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const request = require('request');
-const $ = require('jquery');
 
 const movieListing = [];
 
