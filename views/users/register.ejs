@@ -4,19 +4,19 @@
 	<% include ../head %>
 	<title></title>
 </head>
-<body>
-	<h3 id="users-register-header">Create an account!</h3>
-	<br>
-	<form id="users-register-form" action="/users/register" method="POST">
+<body id="website-user-register-body">
+	<h1 id="users-register-header" style="margin-top: 0.5rem;">Create an account!</h1>
+
+	<form id="users-register-form" action="/users/register" method="POST" style="padding: 0.5rem 0;">
 		Username: <input type='text' name='username'>
 		<br>
-		Password: <input type='text' name='password'>
+		Password: <input type='text' name='password' style="margin-left: 1px;"><br>
 		<br>
 		<button type="submit">Register</button>
 	</form>
 
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<span class="navbar-brand mb-0 h1">DVDb</span>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

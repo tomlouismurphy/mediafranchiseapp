@@ -4,6 +4,49 @@ body {
   background-color: pink;
   font-family: 'Open Sans', sans-serif;
 }
+body#website-home-body {
+  height: 100%;
+  width: 100%;
+  background: no-repeat center center / 100% fixed url("../images/DisneyVaultBackground.jpg");
+  background-color: gray;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+body#website-login-body {
+  height: 100%;
+  width: 100%;
+  background: no-repeat center center / 100% fixed url("../images/DisneyVaultBackground.jpg");
+  background-color: gray;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+body#website-user-register-body {
+  height: 100%;
+  width: 100%;
+  background: no-repeat center center / 100% fixed url("../images/DisneyVaultBackground.jpg");
+  background-color: gray;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+body#website-users-page-body {
+  height: 100%;
+  width: 100%;
+  background: no-repeat center center / 100% fixed url("../images/DisneyVaultBackground.jpg");
+  background-color: gray;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+body#website-show-body {
+  background-color: blue;
+}
+.home-page-center {
+  text-align: center;
+  display: block;
+  margin-bottom: 0;
+}
+p.home-page-center {
+  color: black;
+}
 .sideMovieHeading {
   font-weight: bold;
   margin-bottom: 7px;
@@ -19,6 +62,7 @@ body {
 }
 .col-1 {
   text-align: center;
+  background: repeat-y center / 75% url('../images/film-clipart-border-13.jpg');
 }
 .col-2 {
   text-align: center;
@@ -44,6 +88,10 @@ body {
   text-align: center;
   border: 1px solid black;
 }
+.col-8 {
+  text-align: center;
+  border: 1px solid black;
+}
 .col-10 {
   text-align: center;
   border: 1px solid black;
@@ -62,6 +110,28 @@ td {
 }
 li {
   text-align: left;
+}
+#website-title {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+#website-subtitle {
+  text-align: center;
+}
+#home-page-movies {
+  padding: 0;
+}
+#home-page-register {
+  padding: 0;
+  margin-bottom: 1em;
+}
+#home-page-login {
+  padding: 0;
+  margin-bottom: 1em;
+}
+.col-4 div.textContainer {
+  padding: 1em 0.5em;
+  color: black;
 }
 #main-page-layout {
   margin: 0;
@@ -89,8 +159,10 @@ li {
 #user-textarea-layout {
   margin: 0;
   padding: 0;
-  height: 100%;
   text-align: center;
+}
+div#user-textarea-layout {
+  height: 50%;
 }
 #third-textarea-layout div.col-1 div.textContainer {
   background: unset;
@@ -107,6 +179,12 @@ li {
 #addchar-form {
   text-align: center;
 }
+#create-movie-title {
+  text-align: center;
+}
+#create-movie-form {
+  text-align: center;
+}
 #comment-textarea {
   width: 75%;
 }
@@ -115,6 +193,8 @@ li {
 }
 #users-list-header {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
 #user-login-page-title {
   text-align: center;
