@@ -80,6 +80,8 @@ router.get('/:id', (req, res) => {
 				}
 			}
 		})
+	} else {
+		res.send('Sorry, you cannot access that page.');
 	}
 })
 

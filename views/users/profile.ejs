@@ -6,17 +6,20 @@
 </head>
 <body>
 	<h2><%=person.username%></h2>
-
+	<br>
 	<h4 font-weight="bold">My Movies</h4>
-		<%if (person.ratedMovies.length > 0){%>
-			<%for (let i = 0; i < person.ratedMovies.length; i++){%>
-				<%=person.ratedMovies[i].movie%> : <%=person.ratedMovies[i].rating%>
-			<%}%>
-		<%}%>
 		<h5>
+			<%if (person.ratedMovies.length > 0){%>
+				<%for (let i = 0; i < person.ratedMovies.length; i++){%>
+					<%=person.ratedMovies[i].movie%> : <%=person.ratedMovies[i].rating%>
+				<%}%>
+			<%}%>
+		</h5>
 
-	<a href="/movies">List of Movies</a><br>
-	<a href="/users">List of Users</a>
+	<p>
+		<a href="/movies">List of Movies</a><br>
+		<a href="/users">List of Users</a>
+	</p>
 
 	<script src="../javascripts/app.js"></script>
 </body>
