@@ -58,19 +58,18 @@ router.put('/:index', (req, res) => {
 					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].movie = currentMovie.name;
 					console.log(myAccount.ratedMovies);
 					myAccount.save();
-					res.redirect('/');
 				}
 			})
 		}
 	})
-})
-
-router.put('/:index', (req, res) => {
 	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
 		foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
 		foundMovie.save();
 		res.redirect('/movies');
 	})
+})
+
+router.put('/:index', (req, res) => {
 })
 
 router.get('/:index/addchar', (req, res) => {
