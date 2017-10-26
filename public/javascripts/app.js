@@ -317,21 +317,21 @@ $('#third-textarea-layout').on('hide.bs.collapse', () => {
 
 
 
-$('#post-comment-button').on('click', () => {
-	const $newComment = $('#new-user-comment')[0].value;
-	const $newCommentEntry = $('<tr>');
-	$('#user-comments-list').append($newCommentEntry);
-	const $newCommentNumber = $('<th>');
-	$newCommentNumber.attr('scope', 'row');
-	$newCommentEntry.append($newCommentNumber);
-	commentCounter += 1;
-	$newCommentNumber.text(`${commentCounter}`);
-	const $newCommentUsername = $('<td>');
-	$newCommentEntry.append($newCommentUsername);
-	$newCommentUsername.text('username');
-	const $newCommentContent = $('<td>');
-	$newCommentEntry.append($newCommentContent);
-	$newCommentContent.text($newComment);
-})
+// $('#post-comment-button').on('click', () => {
+	// const $newComment = $('#new-user-comment')[0].value;
+	// const $newCommentEntry = $('<tr>');
+	// $('#user-comments-list').append($newCommentEntry);
+	// const $newCommentNumber = $('<th>');
+	// $newCommentNumber.attr('scope', 'row');
+	// $newCommentEntry.append($newCommentNumber);
+	// commentCounter += 1;
+	// $newCommentNumber.text(`${commentCounter}`);
+	// const $newCommentUsername = $('<td>');
+	// $newCommentEntry.append($newCommentUsername);
+	// $newCommentUsername.text('username');
+	// const $newCommentContent = $('<td>');
+	// $newCommentEntry.append($newCommentContent);
+	// $newCommentContent.text($newComment);
+// })
 
 console.log('public js window is now closing');

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const request = require('request');
-const $ = require('jquery');
 
 const movieListing = [];
 
@@ -18,7 +17,12 @@ const MovieSchema = new mongoose.Schema({
     popularity: Number,
     crew: [String],
     cast: [String],
-    characters: [String]
+    characters: [String],
+    director: [String],
+    comments: [{
+        username: String,
+        comment: String
+    }]
 });
 
 const Movie = mongoose.model('Movie', MovieSchema);
@@ -34,7 +38,9 @@ const populateDatabase = () => {
                                 original_language: movieListing[i].original_language,
                                 crew: [],
                                 cast: [],
-                                characters: []
+                                characters: [],
+                                comments: [],
+                                director: []
                             })
         movie.save();
     }

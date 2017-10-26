@@ -5,17 +5,39 @@
 	<title></title>
 </head>
 <body>
-<header>
-	<h1>Create a Movie</h1>
-</header>
-<main>
-	<form action="/movies" method="POST">
-		Title: <input type="text" name="name"><br>
-		Release Year: <input type="text" name="releaseDate"><br>
-		<input type="submit" value="Create Movie">
-	</form>
-<a href="/movies">Return to Movie List</a><br>
-<a href="/">Return to Home</a>
-<script src="../javascripts/app.js"></script>
+	<header>
+		<h1>Create a Movie</h1>
+	</header>
+
+	<br>
+
+	<main>
+		<form action="/movies" method="POST">
+			Title: <input type="text" name="name"><br>
+			Release Year: <input type="text" name="releaseDate"><br>
+			<input type="submit" value="Create Movie">
+		</form>
+	</main>
+
+	<br>
+
+	<a href="/movies">Return to Movie List</a><br>
+	<a href="/">Return to Home</a>
+
+	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="/movies">Movies</a>
+				<a class="nav-item nav-link" href="/users">Profiles</a>
+			</div>
+		</div>
+	</nav>
+	
+	<script src="../javascripts/app.js"></script>
 </body>
 </html>

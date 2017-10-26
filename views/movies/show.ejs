@@ -5,14 +5,15 @@
 	<title></title>
 </head>
 <body>
-<div class="container-fluid" id="main-page-layout">
+	<div class="container-fluid" id="main-page-layout">
 		<div class="row no-gutters" id="title-row">
 			<div class="col-1">
 				
 			</div>
 			<div class="col-10" id="title-display">
 				<div class="textContainer">
-					<h1 class="font-weight-bold">Movie Listing Page</h1>
+					<h1 class="font-weight-bold">Movie Listing Page:<br>
+						<%=movie.name%></h1>
 				</div>
 			</div>
 			<div class="col-1">
@@ -23,23 +24,43 @@
 			<div class="col-1">
 				
 			</div>
-			<div class="col-7">
+			<div class="col-7 align-self-stretch">
 				<div class="textContainer" id="main-movie-info">
-					<img class="img-fluid" src="https://image.tmdb.org/t/p/w500/<%=movie.poster_path%>">
-					<h3 class="font-weight-bold" id="main-movie-title"><%=movie.name%></h3>
-					<p><%=movie.overview%></p>
+					<% if (movie.poster_path === null) { %>
+						<h3 class="font-weight-bold" id="no-img-main-title" style="padding: 1em 0; text-decoration: underline;"><%=movie.name%></h3>
+						<p id="no-img-main-overview" style="text-align: justify; padding: 0 15px;"><%=movie.overview%></p>
+					<% } else { %>
+						<img class="img-fluid" src="https://image.tmdb.org/t/p/w500/<%=movie.poster_path%>">
+						<h3 class="font-weight-bold" id="main-movie-title"><%=movie.name%></h3>
+						<p id="main-movie-overview"><%=movie.overview%></p>
+					<% } %>
 				</div>
 			</div>
 			<div class="col-3 align-self-stretch">
 				<div class="textContainer" id="side-movie-info">
-					<p class="sideMovieHeading">Release Year:</p> <p><%=movie.releaseDate%></p>
+					<p class="sideMovieHeading">Release Year:</p>
+					<p><%=movie.releaseDate%></p>
 					<p class="sideMovieHeading">List of Genres:</p>
-					<p class="sideMovieHeading">Original Language:</p> <p><%=movie.original_language.toUpperCase()%></p>
-					<p class="sideMovieHeading">Characters:</p> <p><%for (let i = 0; i < movie.characters.length - 1; i++){%>
-							<a href="/<%=movie.id%>/characters<%=i%>"><%=movie.characters[i]%></a>, 
+					<ul>
+						<li>Placeholder 1</li>
+						<li>Placeholder 2</li>
+					</ul>
+					<p class="sideMovieHeading">Original Language:</p>
+					<p><%=movie.original_language.toUpperCase()%></p>
+					<p class="sideMovieHeading">Director:</p>
+					<p>
+						<%for (let i = 0; i < movie.director.length - 1; i++){%>
+							<p><%=movie.director[i]%></p>
 						<%}%>
-							<a href="/<%=movie.id%>/characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a></p>
-					<a href="/movies/<%=movie.id%>/addchar">Add New Character</a><br><br>
+					</p>
+					<p class="sideMovieHeading">Characters:</p>
+					<p>
+						<%for (let i = 0; i < movie.characters.length - 1; i++){%>
+							<a href="/<%=movie.id%>/characters<%=i%>"><%=movie.characters[i]%></a>
+						<%}%>
+						<a href="/<%=movie.id%>/characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a>
+					</p>
+					<a href="/movies/<%=movie.id%>/addchar">Add New Character</a>
 					<h4>Rate Movie:</h4>
 						<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
 							<select name="rating"><%for (let i = 0; i < 11; i++){%>
@@ -81,20 +102,20 @@
 							</tr>
 						</thead>
 						<tbody id="user-comments-list">
-							<tr>
-								<th scope="row">1</th>
-								<td>Username Here</td>
-								<td>Here is my listed comment that I typed out in the text box below.</td>
-							</tr>
+							<% for (let i = 0; i < movie.comments.length; i++){ %>
+								<tr>
+									<th scope="row"><%= i + 1 %></th>
+									<td><%= movie.comments[i].username %></td>
+									<td><%= movie.comments[i].comment %></td>
+								</tr>
+							<% } %>
 						</tbody>
 					</table>
 					<br>
 					<br>
-					<form>
-						<textarea id="new-user-comment" rows="7"></textarea>
-						<div>
-							<input id="post-comment-button" class="btn btn-primary" type="button" value="Input" name="usercomment">
-						</div>
+					<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
+						<textarea id="comment-textarea" rows="6" name="newcomment"></textarea><br>
+						<input id="post-comment-button" class="btn btn-primary" type="submit" value="Add Comment" name="usercomment">
 					</form>
 				</div>
 			</div>
@@ -102,7 +123,28 @@
 		<div class="row no-gutters justify-content-center collapse" id="second-textarea-layout">
 			<div class="col-10">
 				<div class="textContainer">
-					<h3>Add Actor/Crew Member</h3>
+					<h3>Add Characters/Actors/Crew Members</h3>
+					<br>
+					<h5>Characters:</h5>
+					<form>
+						<fieldset>
+							<p>
+								<label for="character-name-select">Name:</label>
+								<select id="character-name-select">
+									<option value>Choose...</option>
+									<optgroup label="Character in Database">
+										<option value>Member 1</option>
+										<option value>Member 2</option>
+										<option value>Member 3</option>
+									</optgroup>
+								</select>
+							</p>
+							<div>
+								<input id="add-actor-button" class="btn btn-primary" type="button" value="Input" name="addcharacterbutton">
+							</div>
+						</fieldset>
+					</form>
+					<br>
 					<br>
 					<h5>Actor/Actress:</h5>
 					<form>
@@ -125,7 +167,7 @@
 					</form>
 					<br>
 					<br>
-					<h5>Production Crew Member:</h5>
+					<h5>Production Crew Members:</h5>
 					<form>
 						<fieldset>
 							<p>
@@ -153,7 +195,18 @@
 			</div>
 			<div class="col-10">
 				<div class="textContainer">
-					<h3>Update Movie Info</h3>
+					<h3>Add Custom Info</h3>
+					<form action="/movies/<%=movie.id%>/director?_method=PUT" method="POST">
+						<label for="genre-textarea">Genres:</label>
+						<textarea id="genre-textarea" rows="6" name="newgenre"></textarea><br>
+						<input id="post-genre-button" class="btn btn-primary" type="submit" value="Add Genre" name="genreinput">
+					</form>
+					<br>
+					<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
+						<label for="director-textarea">Director:</label>
+						<textarea id="director-textarea" rows="6" name="newdirector"></textarea><br>
+						<input id="post-director-button" class="btn btn-primary" type="submit" value="Add Director" name="directorinput">
+					</form>
 				</div>
 			</div>
 			<div class="col-1">
@@ -330,7 +383,7 @@
 
 	<div class="container-fluid" id="navbar-space">
 		<div class="row no-gutters align-items-center" id="empty-navbar-row">
-			<div class="col-12" id="empty-navbar-div">
+			<div class="col-12 fixed-bottom" id="empty-navbar-div">
 				
 			</div>
 		</div>
@@ -345,11 +398,11 @@
 			<div class="navbar-nav">
 				<a class="nav-item nav-link" href="/">Home</a>
 				<a class="nav-item nav-link active" href="/movies">Movies <span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link disabled" href="#">Profile</a>
+				<a class="nav-item nav-link" href="/users">Profiles</a>
 			</div>
 		</div>
 	</nav>
 
-<script src="../javascripts/app.js"></script>
+	<script src="../javascripts/app.js"></script>
 </body>
 </html>

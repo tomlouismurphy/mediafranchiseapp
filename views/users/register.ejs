@@ -5,18 +5,35 @@
 	<title></title>
 </head>
 <body>
-	<h3>Create an account!</h3>
+	<h3 id="users-register-header">Create an account!</h3>
 	<br>
-	<form action="/users/register" method="POST">
+	<form id="users-register-form" action="/users/register" method="POST">
 		Username: <input type='text' name='username'>
 		<br>
 		Password: <input type='text' name='password'>
 		<br>
-		<button type="submit">Register</button><br>
-	</form>	
+		<button type="submit">Register</button>
+	</form>
+
+	<br>
+
 	<a href="/users">Full List of Users</a><br>
 	<a href="/movies">Full List of Movies</a><br>
 	<a href="/">Site Home</a>
+
+	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/">Home</a>
+				<a class="nav-item nav-link" href="/movies">Movies</a>
+				<a class="nav-item nav-link active" href="/users">Profiles <span class="sr-only">(current)</span></a>
+			</div>
+		</div>
+	</nav>
 
 	<script src="../javascripts/app.js"></script>
 </body>
