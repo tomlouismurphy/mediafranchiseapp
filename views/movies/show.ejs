@@ -195,17 +195,13 @@
 			</div>
 			<div class="col-10">
 				<div class="textContainer">
-					<h3>Add Custom Info</h3>
-					<form action="/movies/<%=movie.id%>/director?_method=PUT" method="POST">
-						<label for="genre-textarea">Genres:</label>
-						<textarea id="genre-textarea" rows="6" name="newgenre"></textarea><br>
-						<input id="post-genre-button" class="btn btn-primary" type="submit" value="Add Genre" name="genreinput">
-					</form>
-					<br>
+					<h3>Rate This Film</h3>
 					<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
-						<label for="director-textarea">Director:</label>
-						<textarea id="director-textarea" rows="6" name="newdirector"></textarea><br>
-						<input id="post-director-button" class="btn btn-primary" type="submit" value="Add Director" name="directorinput">
+						<select name="rating"><%for (let i = 0; i < 11; i++){%>
+								<option value="<%=i%>"><%=i%></option>
+							<%}%>
+						</select>
+						<input id="post-genre-button" class="btn btn-primary" type="submit" value="Submit">
 					</form>
 				</div>
 			</div>
@@ -214,13 +210,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
 
 	<div class="container-fluid" id="text-boxes-layout" style="display: none">
 		<div class="row no-gutters align-items-center" id="first-row">
