@@ -58,8 +58,7 @@ router.put('/:index', (req, res) => {
 	Users.findOne({username: req.session.username}, (err, myAccount) => {
 		if (err) {
 			console.log('error');
-		} else {
-			console.log(myAccount);
+		} else if (myAccount) {
 			const emptyArray = {};
 			Movies.findOne({id: req.params.index}, (err, currentMovie) => {
 				if (err) {
@@ -75,13 +74,17 @@ router.put('/:index', (req, res) => {
 					console.log('no add');
 				}
 			})
-		}
-	})
-	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
-		if (typeof req.body.newcomment === 'string'){
-			foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
-			foundMovie.save();
-			res.redirect('/movies');
+			Movies.findOne({id: req.params.index}, (err, foundMovie) => {
+				if (typeof req.body.newcomment === 'string'){
+					foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
+					foundMovie.save();
+					res.redirect('back');
+				} else {
+					res.redirect('back');
+				}
+			})
+		} else {
+			res.redirect('../users/login');
 		}
 	})
 })
