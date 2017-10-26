@@ -4,24 +4,19 @@
 	<% include ../head %>
 	<title></title>
 </head>
-<body>
-	<h3 id="user-login-page-title">Log In</h3>
-	<br>
-	<form id="user-login-form" action="/users/login" method="POST">
+<body id="website-login-body">
+	<h1 id="user-login-page-title" style="margin-top: 0.5rem;">Log In!</h1>
+
+	<form id="user-login-form" action="/users/login" method="POST" style="padding: 0.5rem 0;">
 		Username: <input type='text' name='username'>
 		<br>
-		Password: <input type='text' name='password'>
+		Password: <input type='text' name='password' style="margin-left: 1px;"><br>
 		<br>
 		<button type="submit">Login</button>
 	</form>
 
-	<br>
-		
-	<a href="/movies">List of Movies</a><br>
-	<a href="/">Site Home</a>
-
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<span class="navbar-brand mb-0 h1">DVDb</span>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

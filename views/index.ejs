@@ -4,14 +4,36 @@
 	<% include ./head %>
 	<title></title>
 </head>
-<body>
-	<p>This is the home page.</p>
-	<a href="/movies">Movies</a><br>
-	<a href="/users/register">Create a New Account</a><br>
-	<a href="/users/login">Login!</a>
+<body id="website-home-body">
+	<h1 id="website-title">Welcome to the Disney Vault Database!</h1>
+	<h4 id="website-subtitle">The #1 Resource for Every Disney Movie Under the Sun</h4>
+	<br>
+	<br>
+	<div class="container-fluid">
+		<div class="row no-gutters justify-content-center" id="home-page-movies">
+			<div class="col-4">
+				<div class="textContainer">
+					<p class="home-page-center">To see our list of 400+ Disney movies, click here:</p>
+					<a class="home-page-center" href="/movies">Movies</a>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="textContainer">
+					<p class="home-page-center">To create your own account and help update our database, click here:</p>
+					<a class="home-page-center" href="/users/register">Create a New Account</a>
+				</div>
+			</div>
+			<div class="col-4">
+				<div class="textContainer">
+					<p class="home-page-center">Already have an account? Then click here to sign in:</p>
+					<a class="home-page-center" href="/users/login">Login</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<span class="navbar-brand mb-0 h1">DVDb</span>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

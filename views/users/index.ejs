@@ -4,29 +4,35 @@
 	<% include ../head %>
 	<title></title>
 </head>
-<body>
-	<h1 id="users-page-title">Users Page</h1>
-	<br>
-	<h3 id="users-list-header">List of Users:</h3>
-	<% for (let i = 0; i < users.length; i++) { %>
-		<p style="text-align: center;"><%= users[i].username %></p>
-		<br>
-	<% } %>
-	
-	<br>
-	
-	<p>
-		<a href="users/register">Register for a new account!</a><br>
-		<a href="users/login">Login</a>
-	</p>
+<body id="website-users-page-body">
+	<h1 id="users-page-title" style="margin-top: 0.5rem;">Users Page</h1>
 
-	<br>
+	<div class="container-fluid">
+		<div class="row no-gutters justify-content-center" style="padding: 0.5em 0;">
+			<div class="col-3">
+				<div class="textContainer">
+					<a href="users/register">Register for a new account!</a><br>
+					<a href="users/login">Login</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<a href="/movies">List of Movies</a><br>
-	<a href="/">Home</a>
+	<div class="container-fluid">
+		<div class="row no-gutters justify-content-center" style="padding: 0.5em 0; color: black;">
+			<div class="col-3">
+				<div class="textContainer">
+					<h3 id="users-list-header" style="margin: 0;">List of Users:</h3>
+					<% for (let i = 0; i < users.length; i++) { %>
+						<p style="text-align: center; margin: 0.5rem 0 0 0;"><%= users[i].username %></p>
+					<% } %>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<span class="navbar-brand mb-0 h1">DVDb</span>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

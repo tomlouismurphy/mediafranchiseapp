@@ -6,14 +6,14 @@
 </head>
 <body>
 	<header>
-		<h1>Create a Movie</h1>
+		<h1 id="create-movie-title">Create a Movie</h1>
 	</header>
 
 	<br>
 
 	<main>
-		<form action="/movies" method="POST">
-			Title: <input type="text" name="name"><br>
+		<form id="create-movie-form" action="/movies" method="POST">
+			Title: <input type="text" name="name" style="margin-left: 63px;"><br>
 			Release Year: <input type="text" name="releaseDate"><br>
 			<input type="submit" value="Create Movie">
 		</form>
@@ -25,14 +25,14 @@
 	<a href="/">Return to Home</a>
 
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
-		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<span class="navbar-brand mb-0 h1">DVDb</span>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarCollapse">
 			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link" href="/movies">Movies</a>
+				<a class="nav-item nav-link" href="/">Home</a>
+				<a class="nav-item nav-link active" href="/movies">Movies <span class="sr-only">(current)</span></a>
 				<a class="nav-item nav-link" href="/users">Profiles</a>
 			</div>
 		</div>
