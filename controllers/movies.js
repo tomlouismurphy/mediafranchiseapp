@@ -54,12 +54,15 @@ router.put('/:index', (req, res) => {
 			Movies.findOne({id: req.params.index}, (err, currentMovie) => {
 				if (err) {
 					console.log('error');
-				} else {
+				} else if (typeof req.body.rating === 'string') {
+					console.log('this is' + req.body.rating);
 					myAccount.ratedMovies.push(emptyArray);
 					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].rating = req.body.rating;
 					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].movie = currentMovie.name;
 					console.log(myAccount.ratedMovies);
 					myAccount.save();
+				} else {
+					console.log('no add');
 				}
 			})
 		}

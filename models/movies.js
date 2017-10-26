@@ -69,7 +69,7 @@ const populateAjax = (url) => {
 };
 
 if (movieListing.length === 77){
-    const url = 'https://api.themoviedb.org/3/discover/movie?with_companies=2&page=6&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020';
+    const url = 'https://api.themoviedb.org/3/discover/movie?with_companies=2&page=9&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020';
     populateAjax(url);
     console.log(movieListing.length);
 }
