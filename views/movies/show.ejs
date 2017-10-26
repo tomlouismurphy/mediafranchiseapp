@@ -61,14 +61,6 @@
 						<a href="/<%=movie.id%>/characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a>
 					</p>
 					<a href="/movies/<%=movie.id%>/addchar">Add New Character</a>
-					<h4>Rate Movie:</h4>
-						<form action="/movies/<%=movie.id%>?_method=PUT" method="POST">
-							<select name="rating"><%for (let i = 0; i < 11; i++){%>
-									<option value="<%=i%>"><%=i%></option>
-								<%}%>
-							</select>
-							<button type="submit">Submit</button>
-						</form>
 				</div>
 			</div>
 			<div class="col-1">
