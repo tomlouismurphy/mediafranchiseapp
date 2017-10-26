@@ -9,7 +9,7 @@
 	<ul>
 
 	<% for (let i = 0; i < movies.length; i++){%>
-		<li><a href="/movies/<%=movies[i].id%>"><%=movies[i].name %></a></li>
+		<li><a href="/movies/<%=movies[i].id%>"><%=movies[i].name %> - <%=movies[i].releaseDate%></a></li>
 	<%}%>
 
 	</ul>
@@ -94,6 +94,14 @@
 			</div>
 		</div>
 	</div> -->
+
+	<div class="container-fluid" id="navbar-space">
+		<div class="row no-gutters align-items-center" id="empty-navbar-row">
+			<div class="col-12 fixed-bottom" id="empty-navbar-div">
+				
+			</div>
+		</div>
+	</div>
 
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
 		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>

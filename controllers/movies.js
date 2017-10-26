@@ -1,12 +1,22 @@
 const express = require('express');
 const router = express.Router();
+const request = require('request');
 const Movies = require('../models/movies');
 const Users = require('../models/user');
 const Characters = require('../models/characters');
 const Actors = require('../models/actors');
 
+const compare = (a,b) => {
+	if (a.name < b.name)
+		return -1;
+	if (a.name > b.name)
+		return 1;
+	return 0;
+}
+
 router.get('/', (req, res) => {
 	Movies.find((err, movies) => {
+		movies.sort(compare);
 		res.render('movies/index', {movies: movies});
 	})
 });
@@ -74,9 +84,6 @@ router.put('/:index', (req, res) => {
 			res.redirect('/movies');
 		}
 	})
-})
-
-router.put('/:index', (req, res) => {
 })
 
 router.get('/:index/addchar', (req, res) => {

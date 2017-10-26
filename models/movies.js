@@ -48,7 +48,6 @@ const populateDatabase = () => {
 
 const releaseDateToInt = () => {
     for (let i = 0; i < movieListing.length; i++){
-        console.log(movieListing[i].release_date);
         movieListing[i].release_date = parseInt(movieListing[i].release_date.split(/\s*\-\s*/g)[0]);
     };
 };
@@ -61,17 +60,19 @@ const populateAjax = (url) => {
             const dbObject = JSON.parse(body);
             for (let i = 0; i < dbObject.results.length; i++){
                 movieListing.push(dbObject.results[i]);
+                if (movieListing.length === 441 ){
+                    releaseDateToInt();
+                    populateDatabase();
+                }
             }
-            releaseDateToInt();
-            populateDatabase();
         }
     })
 };
 
-if (movieListing.length === 77){
-    const url = 'https://api.themoviedb.org/3/discover/movie?with_companies=2&page=9&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020';
-    populateAjax(url);
-    console.log(movieListing.length);
+for (i = 1; i < 23; i++){
+        const url = 'https://api.themoviedb.org/3/discover/movie?with_companies=2&page=' + i + '&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020'
+        console.log(url);
+        populateAjax(url);
 }
 
 module.exports = mongoose.model('Movie', MovieSchema);
