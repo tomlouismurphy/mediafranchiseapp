@@ -5,16 +5,40 @@
 	<title></title>
 </head>
 <body>
-	<h3>List of Users</h3>
+	<h1 id="users-page-title">Users Page</h1>
+	<br>
+	<h3 id="users-list-header">List of Users:</h3>
 	<% for (let i = 0; i < users.length; i++) { %>
-		<%= users[i].username %>
+		<p style="text-align: center;"><%= users[i].username %></p>
 		<br>
 	<% } %>
-		<br>
-		<p><a href="users/register">Register for a new account!</a><br>
-		<a href="users/login">Login</p>
+	
+	<br>
+	
+	<p>
+		<a href="users/register">Register for a new account!</a><br>
+		<a href="users/login">Login</a>
+	</p>
+
+	<br>
+
 	<a href="/movies">List of Movies</a><br>
 	<a href="/">Home</a>
+
+	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
+		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link" href="/">Home</a>
+				<a class="nav-item nav-link" href="/movies">Movies</a>
+				<a class="nav-item nav-link active" href="/users">Profiles <span class="sr-only">(current)</span></a>
+			</div>
+		</div>
+	</nav>
+
 	<script src="../javascripts/app.js"></script>
 </body>
 </html>

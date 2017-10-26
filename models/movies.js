@@ -16,7 +16,11 @@ const MovieSchema = new mongoose.Schema({
     poster_path: String,
     popularity: Number,
     director: [String],
-    characters: [String]
+    characters: [String],
+    comments: [{
+        username: String,
+        comment: String
+    }]
 });
 
 const Movie = mongoose.model('Movie', MovieSchema);
@@ -31,7 +35,8 @@ const populateDatabase = () => {
                                 popularity: movieListing[i].popularity,
                                 original_language: movieListing[i].original_language,
                                 director: [],
-                                characters: []
+                                characters: [],
+                                comments: []
                             })
         movie.save();
     }

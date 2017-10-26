@@ -40,6 +40,14 @@ router.get('/:index', (req, res) => {
 	})
 });
 
+router.put('/:index', (req, res) => {
+	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
+		foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
+		foundMovie.save();
+		res.redirect('/movies');
+	})
+})
+
 router.get('/:index/addchar', (req, res) => {
 	Movies.findOne({id: req.params.index}, (err, foundMovie) =>{
 		res.render('movies/addcharacters', {movie: foundMovie});
