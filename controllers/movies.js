@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movies = require('../models/movies');
+const Users = require('../models/user');
 
 router.get('/', (req, res) => {
 	Movies.find((err, movies) => {
@@ -33,12 +34,36 @@ router.get('/:index', (req, res) => {
 			} else {
 				ticker++;
 				if (ticker === movies.length){
-					res.redirect('/movies')
+					res.redirect('movies/')
 				}
 			}
 		}
 	})
 });
+
+router.put('/:index', (req, res) => {
+	console.log(req.session.username);
+	Users.findOne({username: req.session.username}, (err, myAccount) => {
+		if (err) {
+			console.log('error');
+		} else {
+			console.log(myAccount);
+			const emptyArray = {};
+			Movies.findOne({id: req.params.index}, (err, currentMovie) => {
+				if (err) {
+					console.log('error');
+				} else {
+					myAccount.ratedMovies.push(emptyArray);
+					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].rating = req.body.rating;
+					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].movie = currentMovie.name;
+					console.log(myAccount.ratedMovies);
+					myAccount.save();
+					res.redirect('/');
+				}
+			})
+		}
+	})
+})
 
 router.get('/:index/addchar', (req, res) => {
 	Movies.findOne({id: req.params.index}, (err, foundMovie) =>{

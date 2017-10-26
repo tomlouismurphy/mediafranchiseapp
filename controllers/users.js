@@ -67,6 +67,20 @@ router.post('/login', (req, res) => {
 			}
 		}
 	})
+});
+
+router.get('/:id', (req, res) => {
+	if (req.session.username === req.params.id){
+		Users.find((err, person) => {
+			for (let i = 0; i < person.length; i++){
+				if (person[i].username = req.params.id){
+					res.render('users/profile', {person: person[i]});
+				} else {
+					res.redirect('/users');
+				}
+			}
+		})
+	}
 })
 
 module.exports = router;
