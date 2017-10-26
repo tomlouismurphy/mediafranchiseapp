@@ -25,7 +25,7 @@
 				<div class="textContainer">
 					<h3 id="users-list-header" style="margin: 0;">List of Users:</h3>
 					<% for (let i = 0; i < users.length; i++) { %>
-						<p style="text-align: center; margin: 0.5rem 0 0 0;"><%= users[i].username %></p>
+						<a href="/users/<%=users[i].username%>"><p style="text-align: center; margin: 0.5rem 0 0 0;"><%= users[i].username %></p></a>
 					<% } %>
 				</div>
 			</div>
