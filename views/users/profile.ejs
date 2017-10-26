@@ -7,6 +7,17 @@
 <body>
 	<h2><%=person.username%></h2>
 	<br>
+	<h4>About Me</h4>
+
+		<p><%=person.personalMessage%></p><br>
+		<%if (typeof req.session.username !== 'undefined')%>
+			<%if (req.session.username === person.username) {%>
+				<form action="/users/<%=person.username%>?_method=PUT" method="POST">
+					<textarea name="personalMessage"></textarea><br>
+					<input type="submit" value="Update my About Me"><br>
+				</form>
+			<%}%>
+
 	<h4 font-weight="bold">My Movie Reviews</h4>
 		<h5>
 			<%if (person.ratedMovies.length > 0){%>

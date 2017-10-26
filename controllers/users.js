@@ -86,13 +86,26 @@ router.post('/login', (req, res) => {
 
 router.get('/:id', (req, res) => {
 	Users.find((err, person) => {
-		console.log(person);
-		for (let i = 0; i < person.length; i++){
-			if (person[i].username === req.params.id){
-				res.render('users/profile', {person: person[i]});
-				return 0;
+		if (err){
+			console.log('error');
+		} else {
+			console.log(person);
+			for (let i = 0; i < person.length; i++){
+				if (person[i].username === req.params.id){
+					res.render('users/profile', {person: person[i], req: req});
+					return 0;
+				}
 			}
 		}
+	})
+})
+
+router.put('/:id', (req, res) => {
+	Users.findOne({username: req.params.id}, (err, person) => {
+		console.log(person);
+		person.personalMessage = req.body.personalMessage;
+		person.save();
+		res.redirect('back');
 	})
 })
 
