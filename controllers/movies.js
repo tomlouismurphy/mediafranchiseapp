@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Movies = require('../models/movies');
 const Users = require('../models/user');
+const Characters = require('../models/characters');
+const Actors = require('../models/actors');
 
 router.get('/', (req, res) => {
 	Movies.find((err, movies) => {
