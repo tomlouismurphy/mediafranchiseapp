@@ -9,7 +9,8 @@ const UserSchema = new mongoose.Schema({
 	ratedMovies: [{
 		movie: String,
 		rating: Number
-	}]
+	}],
+	personalMessage: String
 })
 
 module.exports = mongoose.model('User', UserSchema);

@@ -85,19 +85,15 @@ router.post('/login', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-	if (req.session.username === req.params.id){
-		Users.find((err, person) => {
-			console.log(person);
-			for (let i = 0; i < person.length; i++){
-				if (person[i].username === req.params.id){
-					res.render('users/profile', {person: person[i]});
-					return 0;
-				}
+	Users.find((err, person) => {
+		console.log(person);
+		for (let i = 0; i < person.length; i++){
+			if (person[i].username === req.params.id){
+				res.render('users/profile', {person: person[i]});
+				return 0;
 			}
-		})
-	} else {
-		res.send('Sorry, you cannot access that page.');
-	}
+		}
+	})
 })
 
 module.exports = router;
