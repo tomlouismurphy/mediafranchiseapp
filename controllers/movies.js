@@ -68,9 +68,11 @@ router.put('/:index', (req, res) => {
 		}
 	})
 	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
-		foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
-		foundMovie.save();
-		res.redirect('/movies');
+		if (typeof req.body.newcomment === 'string'){
+			foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
+			foundMovie.save();
+			res.redirect('/movies');
+		}
 	})
 })
 
