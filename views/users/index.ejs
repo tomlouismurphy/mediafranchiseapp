@@ -9,8 +9,7 @@
 	<br>
 	<h3 id="users-list-header">List of Users:</h3>
 	<% for (let i = 0; i < users.length; i++) { %>
-		<p style="text-align: center;"><%= users[i].username %></p>
-		<br>
+		<a href="users/<%=users[i].username%>"><p style="text-align: center;"><%= users[i].username %></p></a>
 	<% } %>
 	
 	<br>
@@ -19,11 +18,6 @@
 		<a href="users/register">Register for a new account!</a><br>
 		<a href="users/login">Login</a>
 	</p>
-
-	<br>
-
-	<a href="/movies">List of Movies</a><br>
-	<a href="/">Home</a>
 
 	<nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
 		<span class="navbar-brand mb-0 h1">MediaFranchiseApp</span>
