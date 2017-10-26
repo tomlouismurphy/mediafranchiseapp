@@ -2,12 +2,28 @@ const express = require('express');
 const router = express.Router();
 const Users = require('../models/user');
 
+const compare = (a,b) => {
+	if (a.username < b.username)
+		return -1;
+	if (a.username > b.username)
+		return 1;
+	return 0;
+}
+
 router.get('/', (req, res) => {
 	console.log(req.session);
 	Users.find((err, inp) => {
 		if (err) {
 			res.send('database error');
 		} else {
+			for (let i = 0; i < inp.length; i++){
+				inp[i].savedUsername = inp[i].username;
+				inp[i].username = inp[i].username.toLowerCase();
+			}
+			inp.sort(compare);
+			for (let i = 0; i < inp.length; i++){
+				inp[i].username = inp[i].savedUsername;
+			}
 			res.render('users/index', {users: inp});
 		}
 	})
@@ -45,7 +61,6 @@ router.get('/login', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-	console.log(req.body);
 	Users.find((err, inp) => {
 		let ticker = 0;
 		for (let i = 0; i < inp.length; i++){

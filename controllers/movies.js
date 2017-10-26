@@ -64,12 +64,28 @@ router.put('/:index', (req, res) => {
 				if (err) {
 					console.log('error');
 				} else if (typeof req.body.rating === 'string') {
-					console.log('this is' + req.body.rating);
-					myAccount.ratedMovies.push(emptyArray);
-					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].rating = req.body.rating;
-					myAccount.ratedMovies[myAccount.ratedMovies.length - 1].movie = currentMovie.name;
-					console.log(myAccount.ratedMovies);
-					myAccount.save();
+					let ticker = 0;
+					for (let i = 0; i < myAccount.ratedMovies.length; i++) {
+						if (myAccount.ratedMovies[i].movie === currentMovie.name) {
+							ticker++;
+							console.log(myAccount.ratedMovies[i].rating + 'aaa');
+							console.log(req.body.rating + 'bbb')
+							myAccount.ratedMovies[i].rating = req.body.rating;
+							myAccount.save();
+						} else {
+							;
+						}
+					}
+					if (ticker === 0) {
+						console.log('this is' + req.body.rating);
+						myAccount.ratedMovies.push(emptyArray);
+						myAccount.ratedMovies[myAccount.ratedMovies.length - 1].rating = req.body.rating;
+						myAccount.ratedMovies[myAccount.ratedMovies.length - 1].movie = currentMovie.name;
+						console.log(myAccount.ratedMovies);
+						myAccount.save();
+					} else {
+						;
+					}
 				} else {
 					console.log('no add');
 				}

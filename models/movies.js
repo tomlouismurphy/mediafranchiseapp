@@ -27,54 +27,6 @@ const MovieSchema = new mongoose.Schema({
 
 const Movie = mongoose.model('Movie', MovieSchema);
 
-const populateDatabase = () => {
-    for (let i = 0; i < movieListing.length; i++){
-        const movie = new Movie({name: movieListing[i].title,
-                                releaseDate: movieListing[i].release_date,
-                                id: movieListing[i].id,
-                                overview: movieListing[i].overview,
-                                poster_path: movieListing[i].poster_path,
-                                popularity: movieListing[i].popularity,
-                                original_language: movieListing[i].original_language,
-                                crew: [],
-                                cast: [],
-                                characters: [],
-                                comments: [],
-                                director: []
-                            })
-        movie.save();
-    }
-}
-
-const releaseDateToInt = () => {
-    for (let i = 0; i < movieListing.length; i++){
-        movieListing[i].release_date = parseInt(movieListing[i].release_date.split(/\s*\-\s*/g)[0]);
-    };
-};
-
-const populateAjax = (url) => {
-    request(url, (error, response, body) => {
-        if (error){
-            console.log('error');
-        } else {
-            const dbObject = JSON.parse(body);
-            for (let i = 0; i < dbObject.results.length; i++){
-                movieListing.push(dbObject.results[i]);
-                if (movieListing.length === 441 ){
-                    releaseDateToInt();
-                    populateDatabase();
-                }
-            }
-        }
-    })
-};
-
-for (i = 1; i < 23; i++){
-        const url = 'https://api.themoviedb.org/3/discover/movie?with_companies=2&page=' + i + '&include_video=false&include_adult=false&sort_by=original_title.asc&language=en-US&api_key=32589a3c15168653f4bc773880912020'
-        console.log(url);
-        populateAjax(url);
-}
-
 module.exports = mongoose.model('Movie', MovieSchema);
 
 // const movies = [
