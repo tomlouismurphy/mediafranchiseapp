@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tomlouismurphy/mediafranchiseapp#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.7",

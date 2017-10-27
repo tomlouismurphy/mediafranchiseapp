@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Users = require('../models/user');
+const bcrypt = require('bcrypt');
 
 const compare = (a,b) => {
 	if (a.username < b.username)
@@ -37,9 +38,11 @@ router.post('/register', (req, res) => {
 	Users.findOne({username: req.body.username}, (err, input) => {
 		if (!input) {
 			const password = req.body.password;
+			const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 			const userDbEntry = {};
 			userDbEntry.username = req.body.username;
-			userDbEntry.password = password;
+			userDbEntry.password = passwordHash;
+			console.log(userDbEntry);
 			Users.create(userDbEntry, (err, user) => {
 				if (err) {
 					res.send('error');
@@ -65,7 +68,7 @@ router.post('/login', (req, res) => {
 		let ticker = 0;
 		for (let i = 0; i < inp.length; i++){
 			if (inp[i].username === req.body.username){
-				if (inp[i].password === req.body.password){
+				if (bcrypt.compareSync(req.body.password, inp[i].password) === true){
 					req.session.logged = true;
 					req.session.username = req.body.username;
 					req.session.save();
