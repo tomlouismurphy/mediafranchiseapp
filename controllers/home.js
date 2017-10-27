@@ -5,6 +5,7 @@ const Movies = require('../models/movies');
 
 const movieListing = [];
 
+//this function fits the data from our ajax call into the movie schema
 const populateDatabase = () => {
     for (let i = 0; i < movieListing.length; i++){
         const movie = new Movies({name: movieListing[i].title,
@@ -24,12 +25,14 @@ const populateDatabase = () => {
     }
 }
 
+//fixes the release date in the AJAX data being rendered as a string
 const releaseDateToInt = () => {
     for (let i = 0; i < movieListing.length; i++){
         movieListing[i].release_date = parseInt(movieListing[i].release_date.split(/\s*\-\s*/g)[0]);
     };
 };
 
+//
 const populateAjax = (url) => {
     request(url, (error, response, body) => {
         if (error){
@@ -47,6 +50,7 @@ const populateAjax = (url) => {
     })
 };
 
+//makes AJAX call to get exactly 440 Disney movies onto our database upon the first loading of home page
 router.get('/', (req, res) => {
 		Movies.findOne({name: '101 Dalmatians'}, (err, foundMovie) => {
 		if (foundMovie === null){

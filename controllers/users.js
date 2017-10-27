@@ -13,10 +13,13 @@ const compare = (a,b) => {
 
 router.get('/', (req, res) => {
 	console.log(req.session);
+
 	Users.find((err, inp) => {
 		if (err) {
 			res.send('database error');
 		} else {
+			//converts all users to lower case so they can be correctly
+			//indexed by alphabet on index page
 			for (let i = 0; i < inp.length; i++){
 				inp[i].savedUsername = inp[i].username;
 				inp[i].username = inp[i].username.toLowerCase();
@@ -35,6 +38,7 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
+	//runs check to see if username already in use
 	Users.findOne({username: req.body.username}, (err, input) => {
 		if (!input) {
 			const password = req.body.password;
@@ -63,6 +67,7 @@ router.get('/login', (req, res) => {
 	res.render('users/login', {});
 })
 
+//bcrypt authorized login method
 router.post('/login', (req, res) => {
 	Users.find((err, inp) => {
 		let ticker = 0;
@@ -103,6 +108,7 @@ router.get('/:id', (req, res) => {
 	})
 })
 
+//allows a user to edit their about me page on profile only if it is their profile
 router.put('/:id', (req, res) => {
 	Users.findOne({username: req.params.id}, (err, person) => {
 		console.log(person);

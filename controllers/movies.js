@@ -6,6 +6,7 @@ const Users = require('../models/user');
 const Characters = require('../models/characters');
 const Actors = require('../models/actors');
 
+//Sort function to compare all movies in the database in alphabetical order
 const compare = (a,b) => {
 	if (a.name < b.name)
 		return -1;
@@ -14,6 +15,7 @@ const compare = (a,b) => {
 	return 0;
 };
 
+//generates index of 440 movies on movie index page
 router.get('/', (req, res) => {
 	Movies.find((err, movies) => {
 		movies.sort(compare);
@@ -21,6 +23,7 @@ router.get('/', (req, res) => {
 	})
 });
 
+//route to post a new movie
 router.post('/', (req, res) => {
 	Movies.create(req.body, (err, newMovie) => {
 		if (err) {
@@ -40,7 +43,9 @@ router.get('/newchar', (req, res) => {
 	res.render('movies/newcharacter');
 });
 
+
 router.post('/newchar', (req, res) => {
+	//ensures that individual characters are not added to the database multiple times
 	Characters.findOne({name: req.body.name}, (err, duplicate) => {
 		if (err) {
 			res.send('error');
@@ -64,6 +69,7 @@ router.get('/newactor', (req, res) => {
 });
 
 router.post('/newactor', (req, res) => {
+	//ensures that individual actors are not added to the database multiple times
 	Actors.findOne({name: req.body.name}, (err, duplicate) => {
 		if (err) {
 			res.send('error');
@@ -87,6 +93,8 @@ router.get('/:index', (req, res) => {
 	Movies.find((err, movies) => {
 		let ticker = 0;
 		for (let i = 0; i < movies.length; i++){
+			//if a movie is found with the proper id, shows page
+			//if not, redirects to movie index
 			if (movies[i].id === req.params.index){
 				res.render('movies/show', {movie: movies[i]});
 			} else {
@@ -113,11 +121,13 @@ router.get('/:index/addchar', (req, res) => {
 
 router.put('/:index', (req, res) => {
 	console.log(req.session.username);
+	//ensures that a user is checked in before they edit a movie page
 	Users.findOne({username: req.session.username}, (err, myAccount) => {
 		if (err) {
 			console.log('error');
 		} else if (myAccount) {
 			const emptyArray = {};
+			//logs a movie rating and saves it to a user's profile page
 			Movies.findOne({id: req.params.index}, (err, currentMovie) => {
 				if (err) {
 					console.log('error');
@@ -126,8 +136,6 @@ router.put('/:index', (req, res) => {
 					for (let i = 0; i < myAccount.ratedMovies.length; i++) {
 						if (myAccount.ratedMovies[i].movie === currentMovie.name) {
 							ticker++;
-							console.log(myAccount.ratedMovies[i].rating + 'aaa');
-							console.log(req.body.rating + 'bbb')
 							myAccount.ratedMovies[i].rating = req.body.rating;
 							myAccount.save();
 						} else {
@@ -148,6 +156,7 @@ router.put('/:index', (req, res) => {
 					console.log('no add');
 				}
 			})
+			//saves a comment with a user's name on the movie page
 			Movies.findOne({id: req.params.index}, (err, foundMovie) => {
 				if (typeof req.body.newcomment === 'string'){
 					foundMovie.comments.push({username: req.session.username, comment: req.body.newcomment});
@@ -163,6 +172,7 @@ router.put('/:index', (req, res) => {
 	})
 });
 
+//runs check to see if character exists in main database, if so, adds to individual movie page
 router.put('/:index/addchar', (req, res) => {
 	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
 		if (err) {
@@ -184,6 +194,8 @@ router.put('/:index/addchar', (req, res) => {
 		}
 	})
 });
+
+//runs check to see if actor exists in main database, if so, adds to individual movie page
 
 router.put('/:index/addactor', (req, res) => {
 	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
