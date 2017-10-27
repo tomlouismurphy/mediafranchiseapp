@@ -52,7 +52,7 @@ router.post('/newchar', (req, res) => {
 				if (err) {
 					res.send('error');
 				} else {
-					res.redirect('/movies/')
+					res.redirect('back')
 				}
 			})
 		}
@@ -75,7 +75,7 @@ router.post('/newactor', (req, res) => {
 				if (err) {
 					res.send('error');
 				} else {
-					res.redirect('/movies/')
+					res.redirect('back')
 				}
 			})
 		}
@@ -176,7 +176,7 @@ router.put('/:index/addchar', (req, res) => {
 					foundMovie.characters.push(foundCharacter);
 					console.log(foundMovie.characters);
 					foundMovie.save();
-					res.redirect('/movies/');
+					res.redirect('back');
 				} else {
 					res.send('Please add this character to our main database first!')
 				}
@@ -196,7 +196,7 @@ router.put('/:index/addactor', (req, res) => {
 				} else if (foundActor) {
 					foundMovie.cast.push(foundActor);
 					foundMovie.save();
-					res.redirect('/movies/');
+					res.redirect('back');
 				} else {
 					res.send('Please add this actor to our main database first!')
 				}

@@ -41,7 +41,7 @@ Link to the app here...
 ***
 
 ### Potential Updates:
--
--
+- Add ability for users to post links to outside articles/artwork/fan material that will be added based on tags to actor/character/movie pages
+- Add crossfunctionality between actors and characters schemae so that you can access an actor page from a character they have played and vice versa
 -
 -
