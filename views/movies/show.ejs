@@ -10,6 +10,7 @@
 			<div class="col-1">
 				
 			</div>
+			<!-- Page Heading -->
 			<div class="col-10" id="title-display">
 				<div class="textContainer">
 					<h1 class="font-weight-bold">Movie Listing Page:<br>
@@ -24,6 +25,7 @@
 			<div class="col-1">
 				
 			</div>
+			<!-- Main Column -->
 			<div class="col-7 align-self-stretch">
 				<div class="textContainer" id="main-movie-info">
 					<% if (movie.poster_path === null) { %>
@@ -36,6 +38,7 @@
 					<% } %>
 				</div>
 			</div>
+			<!-- Side Column -->
 			<div class="col-3 align-self-stretch">
 				<div class="textContainer" id="side-movie-info">
 					<p class="sideMovieHeading">Release Year:</p>
@@ -79,6 +82,7 @@
 			<button id="button-two" class="btn btn-warning" type="button" data-toggle="collapse" data-target="#second-textarea-layout" aria-expanded="false" aria-controls="second-textarea-layout">Add to the Vault</button>
 			<button id="button-three" class="btn btn-warning" type="button" data-toggle="collapse" data-target="#third-textarea-layout" aria-expanded="false" aria-controls="third-textarea-layout">My Rating</button>
 		</p>
+		<!-- Opens up when comments button clicked -->
 		<div class="row no-gutters justify-content-center collapse" id="first-textarea-layout">
 			<div class="col-12">
 				<div class="textContainer">
@@ -111,6 +115,7 @@
 				</div>
 			</div>
 		</div>
+		<!-- Opens up when Add button clicked -->
 		<div class="row no-gutters justify-content-center collapse" id="second-textarea-layout">
 			<div class="col-1 align-self-stretch">
 				
@@ -144,6 +149,7 @@
 				
 			</div>
 		</div>
+		<!-- Opens up when rate button clicked -->
 		<div class="row no-gutters justify-content-center collapse" id="third-textarea-layout">
 			<div class="col-1">
 				<div class="textContainer"></div>
@@ -167,6 +173,7 @@
 		</div>
 	</div>
 
+	<!-- Empty row added in to ensure nav bar doesn't blur out content -->
 	<div class="container-fluid" id="navbar-space">
 		<div class="row no-gutters align-items-center" id="empty-navbar-row">
 			<div class="col-12 fixed-bottom" id="empty-navbar-div">
