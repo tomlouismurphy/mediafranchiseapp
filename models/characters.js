@@ -4,7 +4,7 @@ const Movie = require('./movies');
 
 const CharacterSchema = new mongoose.Schema({
 	name: String,
-	movie: [Movie.schema]
+	movie: [String]
 })
 
 module.exports = mongoose.model('Character', CharacterSchema);

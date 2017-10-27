@@ -42,20 +42,24 @@
 					<p><%=movie.releaseDate%></p>
 					<p class="sideMovieHeading">Original Language:</p>
 					<p><%=movie.original_language.toUpperCase()%></p>
-					<p class="sideMovieHeading">Director:</p>
+					<p class="sideMovieHeading">Actors:</p>
 					<p>
-						<%for (let i = 0; i < movie.director.length - 1; i++){%>
-							<p><%=movie.director[i]%></p>
+						<%if (movie.cast[0]) {%>
+							<%for (let i = 0; i < movie.cast.length - 1; i++){%>
+								<%=movie.cast[i].name%>, 
+							<%}%>
+							<%=movie.cast[movie.characters.length - 1].name%>
 						<%}%>
 					</p>
 					<p class="sideMovieHeading">Characters:</p>
 					<p>
-						<%for (let i = 0; i < movie.characters.length - 1; i++){%>
-							<a href="/<%=movie.id%>/characters<%=i%>"><%=movie.characters[i]%></a>
+						<%if (movie.characters[0]) {%>
+							<%for (let i = 0; i < movie.characters.length - 1; i++){%>
+								<%=movie.characters[i].name%>, 
+							<%}%>
+							<%=movie.characters[movie.characters.length - 1].name%>
 						<%}%>
-						<a href="/<%=movie.id%>/characters<%=movie.characters.length - 1%>"><%=movie.characters[movie.characters.length - 1]%></a>
 					</p>
-					<a href="/movies/<%=movie.id%>/addchar">Add New Character</a>
 				</div>
 			</div>
 			<div class="col-1 align-self-stretch">
@@ -113,69 +117,27 @@
 			</div>
 			<div class="col-10">
 				<div class="textContainer">
-					<h3>Add Characters/Actors/Crew Members</h3>
+					<h3 style="text-decoration: underline">Add to Our Database</h3>
+
 					<br>
+
+						<p><a href="/movies/newchar">Add New Character to Database</a></p>
+						<p><a href="/movies/newactor">Add New Actor to Database</a></p>
+
+					<br>
+
+					<h3 style="text-decoration: underline">Add to This Movie's Page</h3>
+
+					<br>
+
 					<h5>Characters:</h5>
-					<form>
-						<fieldset>
-							<p>
-								<label for="character-name-select">Name:</label>
-								<select id="character-name-select">
-									<option value>Choose...</option>
-									<optgroup label="Character in Database">
-										<option value>Member 1</option>
-										<option value>Member 2</option>
-										<option value>Member 3</option>
-									</optgroup>
-								</select>
-							</p>
-							<div>
-								<input id="add-actor-button" class="btn btn-primary" type="button" value="Input" name="addcharacterbutton">
-							</div>
-						</fieldset>
-					</form>
+						<a href="/movies/<%=movie.id%>/addchar"><p>Add A Character to the <%=movie.name%> Page</p></a>
+					
 					<br>
-					<br>
+
 					<h5>Actor/Actress:</h5>
-					<form>
-						<fieldset>
-							<p>
-								<label for="actor-name-select">Name:</label>
-								<select id="actor-name-select">
-									<option value>Choose...</option>
-									<optgroup label="Actor in Database">
-										<option value>Member 1</option>
-										<option value>Member 2</option>
-										<option value>Member 3</option>
-									</optgroup>
-								</select>
-							</p>
-							<div>
-								<input id="add-actor-button" class="btn btn-primary" type="button" value="Input" name="addactorbutton">
-							</div>
-						</fieldset>
-					</form>
-					<br>
-					<br>
-					<h5>Production Crew Members:</h5>
-					<form>
-						<fieldset>
-							<p>
-								<label for="crew-name-select">Name:</label>
-								<select id="crew-name-select">
-									<option value>Choose...</option>
-									<optgroup label="Crew in Database">
-										<option value>Member 1</option>
-										<option value>Member 2</option>
-										<option value>Member 3</option>
-									</optgroup>
-								</select>
-							</p>
-							<div>
-								<input id="add-crew-button" class="btn btn-primary" type="button" value="Input" name="addcrewbutton">
-							</div>
-						</fieldset>
-					</form>
+
+						<a href="/movies/<%=movie.id%>/addactor"><p>Add An Artist to the <%=movie.name%> Page</p></a>
 				</div>
 			</div>
 			<div class="col-1 align-self-stretch">

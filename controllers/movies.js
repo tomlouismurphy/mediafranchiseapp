@@ -12,7 +12,7 @@ const compare = (a,b) => {
 	if (a.name > b.name)
 		return 1;
 	return 0;
-}
+};
 
 router.get('/', (req, res) => {
 	Movies.find((err, movies) => {
@@ -36,6 +36,52 @@ router.get('/new', (req, res) => {
 	res.render('movies/new', {});
 });
 
+router.get('/newchar', (req, res) => {
+	res.render('movies/newcharacter');
+});
+
+router.post('/newchar', (req, res) => {
+	Characters.findOne({name: req.body.name}, (err, duplicate) => {
+		if (err) {
+			res.send('error');
+		} else if (duplicate){
+			console.log(duplicate);
+			res.send('This character is already in our database!')
+		} else {
+			Characters.create(req.body, (err, newCharacter) => {
+				if (err) {
+					res.send('error');
+				} else {
+					res.redirect('/movies/')
+				}
+			})
+		}
+	})
+})
+
+router.get('/newactor', (req, res) => {
+	res.render('movies/newactor');
+});
+
+router.post('/newactor', (req, res) => {
+	Actors.findOne({name: req.body.name}, (err, duplicate) => {
+		if (err) {
+			res.send('error');
+		} else if (duplicate){
+			console.log(duplicate);
+			res.send('This character is already in our database!')
+		} else {
+			Actors.create(req.body, (err, newActor) => {
+				if (err) {
+					res.send('error');
+				} else {
+					res.redirect('/movies/')
+				}
+			})
+		}
+	})
+})
+
 router.get('/:index', (req, res) => {
 	req.params.index = parseInt(req.params.index);
 	Movies.find((err, movies) => {
@@ -50,6 +96,18 @@ router.get('/:index', (req, res) => {
 				}
 			}
 		}
+	})
+});
+
+router.get('/:index/addactor', (req, res) => {
+	Movies.findOne({id: req.params.index}, (err, foundMovie) =>{
+		res.render('movies/addactors', {movie: foundMovie});
+	})
+});
+
+router.get('/:index/addchar', (req, res) => {
+	Movies.findOne({id: req.params.index}, (err, foundMovie) =>{
+		res.render('movies/addcharacters', {movie: foundMovie});
 	})
 });
 
@@ -103,20 +161,48 @@ router.put('/:index', (req, res) => {
 			res.redirect('../users/login');
 		}
 	})
-})
-
-router.get('/:index/addchar', (req, res) => {
-	Movies.findOne({id: req.params.index}, (err, foundMovie) =>{
-		res.render('movies/addcharacters', {movie: foundMovie});
-	})
-})
+});
 
 router.put('/:index/addchar', (req, res) => {
 	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
-		foundMovie.characters.push(req.body.name);
-		foundMovie.save();
-		res.redirect('/movies/:index');
+		if (err) {
+			res.send('error');
+		} else {
+			Characters.findOne({name: req.body.name}, (err, foundCharacter) => {
+				if (err) {
+					res.send('error');
+				} else if (foundCharacter) {
+					console.log(foundCharacter);
+					foundMovie.characters.push(foundCharacter);
+					console.log(foundMovie.characters);
+					foundMovie.save();
+					res.redirect('/movies/');
+				} else {
+					res.send('Please add this character to our main database first!')
+				}
+			})
+		}
 	})
-})
+});
+
+router.put('/:index/addactor', (req, res) => {
+	Movies.findOne({id: req.params.index}, (err, foundMovie) => {
+		if (err) {
+			res.send('error');
+		} else {
+			Actors.findOne({name: req.body.name}, (err, foundActor) => {
+				if (err) {
+					res.send('error');
+				} else if (foundActor) {
+					foundMovie.cast.push(foundActor);
+					foundMovie.save();
+					res.redirect('/movies/');
+				} else {
+					res.send('Please add this actor to our main database first!')
+				}
+			})
+		}
+	})
+});
 
 module.exports = router;

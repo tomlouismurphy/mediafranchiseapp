@@ -6,16 +6,16 @@
 </head>
 <body>
 	<header>
-		<h1 id="addchar-movie-name"><%=movie.name%></h1>
+		<h1 id="addactor-movie-name">Add an Actor to Our Vault</h1>
 	</header>
 
 	<br>
 
 	<main>
-		<form id="addchar-form" action="/movies/<%=movie.id%>/addchar?_method=PUT" method="POST">
+		<form id="addactor-form" action="/movies/newactor" method="POST">
 			Name: <input type="text" name="name"><br>
 			<br>
-			<input type="submit" value="Add Character">
+			<input type="submit" value="Add Actor">
 		</form>
 	</main>
 

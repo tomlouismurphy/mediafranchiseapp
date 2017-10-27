@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const request = require('request');
+const Actor = require('../models/actors');
+const Character = require('../models/characters');
 
 const movieListing = [];
 
@@ -16,8 +18,8 @@ const MovieSchema = new mongoose.Schema({
     poster_path: String,
     popularity: Number,
     crew: [String],
-    cast: [String],
-    characters: [String],
+    cast: [Actor.schema],
+    characters: [Character.schema],
     director: [String],
     comments: [{
         username: String,
