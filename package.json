@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "method-override": "^2.3.10",
     "mongoose": "^4.12.3",
     "request": "^2.83.0",
+    "start": "^5.1.0",
     "xmlhttprequest": "^1.8.0"
   }
 }
